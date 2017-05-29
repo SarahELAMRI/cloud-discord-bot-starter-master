@@ -7,14 +7,28 @@ client.on('ready', () => {
 })
 
 client.on('message', msg => {
-  // Check if the message has been posted in a channel where the bot operates
-  // and that the author is not the bot itself
-  if (msg.channel.type !== 'dm' && (config.channel !== msg.channel.id || msg.author.id === client.user.id)) return
+ function start() {
+        // Initializes the client with the API key and the Translate API.
+        gapi.client.init({
+          'apiKey': 'AIzaSyCMbHLobaf5DZpKTucV9_7WvtxxKX7Q4S0',
+          'discoveryDocs': ['https://www.googleapis.com/youtube/v3/search'],
+        }).then(function() {
+function handleAPILoaded() {
+  $('#search-button').attr('disabled', false);
+}
 
-  // If message is hello, post hello too
-  if (msg.content === 'hello') {
-    msg.channel.sendMessage('Hello to you too, fellow !')
-  }
-})
+// Search for a specified string.
+function search() {
+  var q = $('#query').val();
+  var request = gapi.client.youtube.search.list({
+    q: q,
+    part: 'snippet'
+  });
+
+  request.execute(function(response) {
+    var str = JSON.stringify(response.result);
+    $('#search-container').html('<pre>' + str + '</pre>');
+  });
+}
 
 client.login(config.token)
