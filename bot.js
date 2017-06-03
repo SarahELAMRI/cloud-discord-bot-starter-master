@@ -2,38 +2,42 @@ const Discord = require('discord.js')
 const config = require('./config.js')
 const client = new Discord.Client()
 
+const Twitter = require('twitter')
+//info compte twitter et bot 
+const clientTwitter = new Twitter({
+  consumer_key: 'MrlErdRtTFsTISbCTVsrTfe4c',
+  consumer_secret: 'vTPusVlQVCrkT7Mp0W0EdYDNSayanR9XdZMdMaJENApsVQO0VJ',
+  access_token_key: '2584464448-eakfNNGHKwnt2NWDoH4NHlSJsbCfDb8cpsoIyXe',
+  access_token_secret: 'v8Y6fWpxwdJn3xYiyjdO2LeZeEXjIAj2XYGc7HVStWbBe'
+})
+
+const params = {screen_name: 'nodejs'}
+clientTwitter.get('statuses/user_timeline', params, function (error, tweets, response) {
+  if (!error) {
+    console.log(tweets)
+  }
+})
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`)
-});
+})
 
 client.on('message', msg => {
-  // Check if the message has been posted in a channel where the bot operates
-  // and that the author is not the bot itself
+  // Verification bot et channel
   if (msg.channel.type !== 'dm' && (config.channel !== msg.channel.id || msg.author.id === client.user.id)) return
-  
-    function defineRequest() {
-    // See full sample for buildApiRequest() code, which is not 
-// specific to a particular youtube or youtube method.
 
-var YouTube = require('youtube-node');
-
-var youTube = new YouTube();
-
-youTube.setKey('AIzaSyBWTMi3IPxFmIe1yaVg7lcHEmztQm5m0oc'); // clé obtenu avec google 
-  // ajouter avriable de recherche  
-// If message is nom de la recherche, post results
-  if (msg.content === 'hello') { // remplacer hello par la variable de recherche
-    
-youTube.search('World War z Trailer', 3, function(error, result) { // changer avec la recherche
-  if (error) {
-    console.log(error);
+  // If message is hello, post hello too
+  if (msg.content === 'hello') {
+    msg.channel.sendMessage('Hello to you too, fellow !')
   }
-  else {
-    console.log(JSON.stringify(result, null, 3));
+ // tweet du bot
+  if (msg.content === 'twitter') {
+    clientTwitter.post('statuses/update', {status: 'Vive Twitter'}, function (error, tweet, response) {
+      if (error) throw error
+      console.log(tweet)
+      console.log(response)
+    })
   }
-});
-    msg.channel.sendMessage('Here is the result of your research, fellow !')
-  } 
 })
 
 client.login(config.token)
