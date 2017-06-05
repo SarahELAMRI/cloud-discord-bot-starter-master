@@ -2,6 +2,8 @@ const Discord = require('discord.js')
 const config = require('./config.js')
 const client = new Discord.Client()
 
+//https://hackernoon.com/create-a-simple-twitter-bot-with-node-js-5b14eb006c08
+
 const Twitter = require('twitter')
 //info compte twitter et bot 
 const clientTwitter = new Twitter({
