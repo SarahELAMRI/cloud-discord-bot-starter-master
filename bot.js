@@ -2,15 +2,11 @@ const Discord = require('discord.js')
 const config = require('./config.js')
 const client = new Discord.Client()
 
-var SpotifyWebApi = require('spotify-web-api-node')
-// trouver les clés id et secret
-var clientid = ''
-var clientSecret = ''
-
 var spotifyApi = new SpotifyWebApi({
-  clientId: clientid,
-  clientSecret: clientSecret
+  clientId : 'fcecfc72172e4cd267473117a17cbd4d',
+  clientSecret : 'a6338157c9bb5ac9c71924cb2940e1a7',
 })
+
 var track
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`)
