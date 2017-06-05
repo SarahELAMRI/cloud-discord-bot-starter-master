@@ -6,11 +6,12 @@ const client = new Discord.Client()
 
 const Twitter = require('twitter')
 //info compte twitter et bot 
+//https://apps.twitter.com/app/13890179/keys
 const clientTwitter = new Twitter({
-  consumer_key: 'MrlErdRtTFsTISbCTVsrTfe4c',
-  consumer_secret: 'vTPusVlQVCrkT7Mp0W0EdYDNSayanR9XdZMdMaJENApsVQO0VJ',
-  access_token_key: '2584464448-eakfNNGHKwnt2NWDoH4NHlSJsbCfDb8cpsoIyXe',
-  access_token_secret: 'v8Y6fWpxwdJn3xYiyjdO2LeZeEXjIAj2XYGc7HVStWbBe'
+  consumer_key: 'TQ70nj7GRuTqixlKfvQ6OEv8z',
+  consumer_secret: 'H2gvkxWBYhv3j4AYAg3VepqvZJlYGXZ0jsdRbBDtbg1jMSidLR',
+  access_token_key: '871798636858019841-asbpxQTGadx6AeEef5jq1weGkFllbAY',
+  access_token_secret: 'TqBhzV3kta7whL0VjS80TKlRq8GZBpL6uqAmjZIrc3CXD'
 })
 
 const params = {screen_name: 'nodejs'}
