@@ -3,13 +3,10 @@ const config = require('./config.js')
 const client = new Discord.Client()
 
 var YoutubeWebApi = require('youtube-web-api-node')
-// trouver les clés id et secret
-var clientid = ''
-var clientSecret = ''
+var clientid = 'AIzaSyBWTMi3IPxFmIe1yaVg7lcHEmztQm5m0oc'//clé API youtube
 
 var youtubeApi = new YoutubeWebApi({
   clientId: clientid,
-  clientSecret: clientSecret
 })
 var track
 //pas besoin de log in pour youtube
