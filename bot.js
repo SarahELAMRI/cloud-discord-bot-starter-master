@@ -41,4 +41,6 @@ client.on('message', msg => {
           msg.channel.sendMessage(translation)
         }
       })
+    }
+  })
 client.login(config.token)
