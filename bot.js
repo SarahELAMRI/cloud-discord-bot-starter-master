@@ -33,18 +33,29 @@ client.on('message', msg => {
   if (msg.content === 'hello') {
     msg.channel.sendMessage('Hello to you too, fellow !')
   }
+  if (msg.content === 'twitter') {
+    clientTwitter.post('statuses/update', {status: 'I Love Twitter'}, function (error, tweet, response) {
+      if (error) throw error
+      console.log(tweet)
+      console.log(response)
+      msg.channel.sendMessage('Ton tweet est publié')
+    })
+    else {
+    msg.channel.sendMessage('Erreur')
+    }
+  }
  // tweet du bot
   if (msg.content.match('!twit*') !== null) {
     const tweety = msg.content.substring(7, msg.content.length)
     if (tweety.length <= 140) {
-      clientTwitter.post('statuses/update', {status: tweety}, function (error, twit, response) {
+      clientTwitter.post('statuses/update', {status: tweety}, function (error, tweet, response) {
         if (error) throw error
         console.log(tweet)
         console.log(response)
         msg.channel.sendMessage('Ton tweet a été publié!')
       })
     } else {
-      msg.channel.sendMessage('Ton tweet contient plus de 140 caractères !')
+      msg.channel.sendMessage('Ton tweet contient plus de 140 caractères.')
     }
   }
 })
