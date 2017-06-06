@@ -4,7 +4,7 @@ const client = new Discord.Client()
 // clé pour API
 var API_KEY = 'AIzaSyCvwWHyl3-w3fVPCgOrWbfqWFTi7fxJ_yg'
 
-var translate = require('@google-cloud/translate')({
+var translate = require('google-translator')({
   key: API_KEY
 })
 
