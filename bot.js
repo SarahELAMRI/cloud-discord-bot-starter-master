@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const config = require('./config.js')
 const client = new Discord.Client()
 // clé pour API
-var API_KEY = 'AIzaSyCvwWHyl3-w3fVPCgOrWbfqWFTi7fxJ_yg'
+var API_KEY = 'AIzaSyCMbHLobaf5DZpKTucV9_7WvtxxKX7Q4S0'
 
 var translate = require('google-translate')({
   key: API_KEY
