@@ -30,7 +30,6 @@ client.on('message', msg => {
         if (!err) {
           msg.channel.sendMessage(translation)
         }
-      }
     } else if (msg.content.match('!trad*') && !msg.content.match('Taper !trad Votre_texte pour traduire votre texte en anglais') && !msg.content.match('Taper !trad lg:Votre_langue Votre_texte pour traduire votre texte dans une langue spécifique')) {
       console.log(msg.content)
       console.log('la')
@@ -40,7 +39,7 @@ client.on('message', msg => {
           msg.channel.sendMessage(translation)
         }
       }
-    }
+   }                        
 }
 
 client.login(config.token)
