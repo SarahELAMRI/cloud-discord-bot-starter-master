@@ -34,12 +34,18 @@ client.on('message', msg => {
     msg.channel.sendMessage('Hello to you too, fellow !')
   }
  // tweet du bot
-  if (msg.content === 'twitter') {
-    clientTwitter.post('statuses/update', {status: 'Vive Twitter'}, function (error, tweet, response) {
-      if (error) throw error
-      console.log(tweet)
-      console.log(response)
-    })
+  if (msg.content.match('!tweet*') !== null) {
+    const tweety = msg.content.substring(8, msg.content.length)
+    if (tweety.length <= 140) {
+      clientTwitter.post('statuses/update', {status: tweety}, function (error, tweet, response) {
+        if (error) throw error
+        console.log(tweet)
+        console.log(response)
+        msg.channel.sendMessage('Ton tweet a bien été posté !')
+      })
+    } else {
+      msg.channel.sendMessage('Ton tweet contient plus de 140 caractères !')
+    }
   }
 })
 
