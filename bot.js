@@ -43,7 +43,7 @@ client.on('message', msg => {
   }
  // tweet du bot
   if (msg.content.match('!twit*') !== null) {
-    const tweety = msg.content.substring(7, msg.content.length)
+    const tweety = msg.content.substring(6, msg.content.length)
     if (tweety.length <= 140) {
       clientTwitter.post('statuses/update', {status: tweety}, function (error, tweet, response) {
         if (error) throw error
