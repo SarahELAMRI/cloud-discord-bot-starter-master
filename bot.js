@@ -40,6 +40,5 @@ client.on('message', msg => {
         if (!err) {
           msg.channel.sendMessage(translation)
         }
-      }
-})
+      })
 client.login(config.token)
