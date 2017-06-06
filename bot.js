@@ -40,9 +40,6 @@ client.on('message', msg => {
       console.log(response)
       msg.channel.sendMessage('Ton tweet est publié')
     })
-    else {
-    msg.channel.sendMessage('Erreur')
-    }
   }
  // tweet du bot
   if (msg.content.match('!twit*') !== null) {
