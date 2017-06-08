@@ -29,7 +29,7 @@ client.on('message', msg => {
   }
       
     })
-})
+}
       //translate.translate(elem, 'en', function (err, translation) {
        // if (!err) {
         //  msg.channel.sendMessage(translation)
