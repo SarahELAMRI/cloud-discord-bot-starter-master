@@ -6,6 +6,11 @@ var translate = require('@google-cloud/translate')({
   projectId:'platinum-lead-116015',
   key: 'AIzaSyBrWCsacfWvZ3NFtioEM42wkVwxTwwPG-g'
 })
+var options = {
+  from: 'en',
+  to: 'es'
+};
+
 
 // https://www.npmjs.com/package/@google-cloud/translate
 
@@ -23,7 +28,7 @@ client.on('message', msg => {
       //console.log(msg.content)
       //console.log('la')
       //elem = msg.content.substring(msg.content.lastIndexOf('!trad ') + '!trad '.length, msg.content.length)
-    translate.translate('Bonjour', 'en', function(err, translation) {
+    translate.translate('Hello', options, function(err, translation) {
   if (!err) {
     // translation = 'Hola'
     msg.channel.sendMessage(translation)
