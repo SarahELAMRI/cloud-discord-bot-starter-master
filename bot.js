@@ -8,7 +8,7 @@ var translate = require('@google-cloud/translate')({
 
 // https://www.npmjs.com/package/@google-cloud/translate
 
-var elem
+//var elem
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`)
@@ -18,16 +18,24 @@ client.on('message', msg => {
   if (msg.content === 'hello') {
     msg.channel.sendMessage('Hello to you too, fellow !')
   }
-  if (msg.content.match('!trad*') !==null) {
-      console.log(msg.content)
-      console.log('la')
-      elem = msg.content.substring(msg.content.lastIndexOf('!trad ') + '!trad '.length, msg.content.length)
-      translate.translate(elem, 'en', function (err, translation) {
-        if (!err) {
-          msg.channel.sendMessage(translation)
-        }
-      })
-   }
+  if (msg.content.match('trad')) {
+      //console.log(msg.content)
+      //console.log('la')
+      //elem = msg.content.substring(msg.content.lastIndexOf('!trad ') + '!trad '.length, msg.content.length)
+    translate.translate('Bonjour', 'en', function(err, translation) {
+  if (!err) {
+    // translation = 'Hola'
+    msg.channel.sendMessage(translation)
+  }
+      
+    })
+})
+      //translate.translate(elem, 'en', function (err, translation) {
+       // if (!err) {
+        //  msg.channel.sendMessage(translation)
+     //   }
+     // })
+   //}
 }
 )
 
