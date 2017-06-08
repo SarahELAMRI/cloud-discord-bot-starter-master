@@ -3,7 +3,7 @@ const config = require('./config.js')
 const client = new Discord.Client()
 
 var translate = require('@google-cloud/translate')({
-  key: AIzaSyCMbHLobaf5DZpKTucV9_7WvtxxKX7Q4S0
+  key: 'AIzaSyCMbHLobaf5DZpKTucV9_7WvtxxKX7Q4S0'
 })
 
 // https://www.npmjs.com/package/@google-cloud/translate
