@@ -3,7 +3,8 @@ const config = require('./config.js')
 const client = new Discord.Client()
 
 var translate = require('@google-cloud/translate')({
-  key: 'AIzaSyCMbHLobaf5DZpKTucV9_7WvtxxKX7Q4S0'
+  projectId:'platinum-lead-116015',
+  key: 'AIzaSyBrWCsacfWvZ3NFtioEM42wkVwxTwwPG-g'
 })
 
 // https://www.npmjs.com/package/@google-cloud/translate
@@ -18,7 +19,7 @@ client.on('message', msg => {
   if (msg.content === 'hello') {
     msg.channel.sendMessage('Hello to you too, fellow !')
   }
-  if (msg.content.match('trad')) {
+  if (msg.content === 'trad') {
       //console.log(msg.content)
       //console.log('la')
       //elem = msg.content.substring(msg.content.lastIndexOf('!trad ') + '!trad '.length, msg.content.length)
