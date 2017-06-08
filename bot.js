@@ -15,6 +15,9 @@ client.on('ready', () => {
 })
 
 client.on('message', msg => {
+  if (msg.content === 'hello') {
+    msg.channel.sendMessage('Hello to you too, fellow !')
+  }
   if (msg.content.match('!trad*') !==null) {
       console.log(msg.content)
       console.log('la')
