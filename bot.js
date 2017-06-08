@@ -24,7 +24,7 @@ client.on('message', msg => {
           msg.channel.sendMessage(translation)
         }
       })
-   })
+   }
 }
 )
 
