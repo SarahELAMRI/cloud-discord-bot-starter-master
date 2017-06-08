@@ -1,22 +1,20 @@
 const Discord = require('discord.js')
 const config = require('./config.js')
 const client = new Discord.Client()
-// clé pour API
-var API_KEY = 'AIzaSyCMbHLobaf5DZpKTucV9_7WvtxxKX7Q4S0'
 
-var translate = require('google-translate')({
-  key: API_KEY
+var translate = require('@google-cloud/translate')({
+  key: AIzaSyCMbHLobaf5DZpKTucV9_7WvtxxKX7Q4S0
 })
 
+// https://www.npmjs.com/package/@google-cloud/translate
 
-var tx
+var elem
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`)
 })
 
 client.on('message', msg => {
-  // Bot Google_traduction //
   if (msg.content.match('!trad *')) {
     console.log(msg.content)
     if (msg.content.match('!trad help*')) {
@@ -40,6 +38,10 @@ client.on('message', msg => {
         if (!err) {
           msg.channel.sendMessage(translation)
         }
-      }
-})
+      })
+    }
+  }
+}
+)
+
 client.login(config.token)
