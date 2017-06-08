@@ -15,7 +15,7 @@ client.on('ready', () => {
 })
 
 client.on('message', msg => {
-  if (msg.content.match('!trad*') {
+  if (msg.content.match('!trad*') !==null) {
       console.log(msg.content)
       console.log('la')
       elem = msg.content.substring(msg.content.lastIndexOf('!trad ') + '!trad '.length, msg.content.length)
