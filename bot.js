@@ -27,7 +27,7 @@ client.on('message', msg => {
     // translation = 'Hola'
     msg.channel.sendMessage(translation)
   }
-      msg.channel.senMessage(translation)
+      msg.channel.sendMessage(translation)
     })
 }
       //translate.translate(elem, 'en', function (err, translation) {
