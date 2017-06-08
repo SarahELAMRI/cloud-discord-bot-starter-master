@@ -23,7 +23,7 @@ client.on('message', msg => {
         if (!err) {
           msg.channel.sendMessage(translation)
         }
-      }
+      })
    })
                                                                            =}
 }
