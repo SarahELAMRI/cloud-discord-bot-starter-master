@@ -62,7 +62,7 @@ client.on('message', msg => {
             })
         }
       // fin partie avec les trois paramètres
-      }, function (err) {
+      } function (err) {
         console.log('Something went wrong when retrieving an access token', err.message)
       })
   }
