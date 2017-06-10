@@ -27,8 +27,10 @@ client.on('message', msg => {
                            console.log(error);
                      }
                        else {
+			       for (var i = 0; i < 3; i++) {
 			       //console.log(JSON.stringify(result, null, 2))
-			       msg.channel.send(result.items[0].id.videoId, msg)
+			       msg.channel.send(result.items[i].snippet.title, msg)
+			       }
 			}
 	    })
     }
