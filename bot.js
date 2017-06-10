@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const config = require('./config.js')
 const client = new Discord.Client()
 
-//https://hackernoon.com/create-a-simple-twitter-bot-with-node-js-5b14eb006c08
+
 
 const Twitter = require('twitter')
 //info compte twitter et bot 
@@ -38,9 +38,7 @@ client.on('message', msg => {
  if(msg.content ==='Mytweets') {
   clientTwitter.get('search/tweets', {q: 'sarah_alvine'}, function webhook (error, tweets, response) {
     if (error) throw error
-    var texte = tweets.statuses[0].text
-    console.log(texte)
-    msg.channel.sendMessage(texte)
+    msg.channel.sendMessage(tweets.statuses[0].text)
     
   })
  }
