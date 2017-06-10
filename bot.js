@@ -22,14 +22,14 @@ client.on('ready', () => {
 client.on('message', msg => {
     if (msg.content.lastIndexOf('!youtube') !== -1) {
           track = msg.content.substring(msg.content.lastIndexOf('!youtube ') + '!youtube '.length, msg.content.length)
-            youTube.search(track,3, function(error, result)) {
+            youTube.search(track,3, function(error, result) {
                      if (error) {
                            console.log(error);
                      }
                        else {
                            console.log(JSON.stringify(result, null, 2))
               }
-        ])
+	    })
     }
       
 })
