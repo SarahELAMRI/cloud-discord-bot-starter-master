@@ -9,7 +9,7 @@ var YouTube = require('youtube-node')
 
 var youTube = new YouTube()
 
-youTube.setKey('AIzaSyBVQcdqQnbBH8jtfLAqOWfcqf3Lz5CDqlA') // clé API Youtube
+youTube.setKey('AIzaSyDigkouz1Xs0GvSmTDERMrMsX5kiVxtRmY') // clé API Youtube
 
 var track
 
