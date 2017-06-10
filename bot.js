@@ -33,6 +33,20 @@ client.on('message', msg => {
             msg.channel.sendMessage('"' + data.body.tracks.items[i].album.name + '" de ' + data.body.tracks.items[i].artists[0].name)
           }
           })
+	    spotifyApi.searchArtists(track)
+            .then(function (data) {
+              msg.channel.sendMessage('Top 3 des artists pour votre recherche : ' + track)
+              for (var i = 0; i < 3; i++) {
+                msg.channel.sendMessage('"' + data.body.artists.items[i].name + '"')
+              }
+            })
+	    spotifyApi.searchTracks('track:' + track)
+            .then(function (data) {
+              msg.channel.sendMessage('Top 3 des chansons pour votre recherche : ' + track)
+              for (var i = 0; i < 3; i++) {
+                msg.channel.sendMessage('"' + data.body.tracks.items[i].name + '" de ' + data.body.tracks.items[i].artists[0].name)
+              }
+            })
     })
 }
 })
