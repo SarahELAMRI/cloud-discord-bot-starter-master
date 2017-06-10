@@ -18,11 +18,11 @@ client.on('message', msg => {
     msg.channel.sendMessage('Hello to you too, fellow !')
   }
   var text = msg.content
-  if (text.substr(0,5) === 'trad') {
+  if (text.substr(0,4) === 'trad') {
     console.log('loopOK')
-    var lang = text.substring(6, 8)
+    var lang = text.substring(5, 7)
     console.log(lang)
-    googleTranslate.translate(text.substr(9), text.substring(6, 8), function (err, translation) {
+    googleTranslate.translate(text.substr(8), text.substring(5, 7), function (err, translation) {
       if (err) {
         console.log('Error', err)
       }
