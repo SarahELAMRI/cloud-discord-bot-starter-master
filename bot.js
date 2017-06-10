@@ -21,7 +21,6 @@ client.on('ready', () => {
 
 client.on('message', msg => {
     if (msg.content.lastIndexOf('!youtube') !== -1) {
-	  var json = JSON.parse(body)
           track = msg.content.substring(msg.content.lastIndexOf('!youtube ') + '!youtube '.length, msg.content.length)
             youTube.search(track,3, function(error, result) {
                      if (error) {
@@ -29,7 +28,7 @@ client.on('message', msg => {
                      }
                        else {
 			       //console.log(JSON.stringify(result, null, 2))
-			       add_to_queue(json.items[0].id.videoId, message)
+			       add_to_queue(json.items[0].id.videoId, msg)
 			}
 	    })
     }
