@@ -27,7 +27,7 @@ client.on('message', msg => {
                            console.log(error);
                      }
                        else {
-			       for (var i = 0; i < 3; i++) {
+			       for (var i = 1; i < 3; i++) {
 				       msg.channel.sendMessage(result.title[i], null, 2)
               			}
 			}
