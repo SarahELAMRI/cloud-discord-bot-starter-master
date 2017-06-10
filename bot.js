@@ -4,8 +4,8 @@ const client = new Discord.Client()
 
 
 var SpotifyWebApi = require('spotify-web-api-node')
-var clientid = '132f44ff456c41d29d544a608b448bbd'
-var clientSecret = '25d2c3ee445140bfa9aaa3d6bcdc194b'
+var clientid = '685eba1d89104afda1af8026b9d43f90'
+var clientSecret = '4015d54a8f004ba2b5048de3b7ab6310'
 var spotifyApi = new SpotifyWebApi({
   clientId: clientid,
   clientSecret: clientSecret
@@ -17,15 +17,15 @@ client.on('ready', () => {
 })
 
 client.on('message', msg => {
-  //if (msg.content.lastIndexOf('!spotify') !== -1) {
-  //  spotifyApi.clientCredentialsGrant()
-    //  .then(function (data) {
+  if (msg.content.lastIndexOf('!spotify') !== -1) {
+        spotifyApi.clientCredentialsGrant()
+        then(function (data) {
    //     console.log('The access token expires in ' + data.body['expires_in'])
    //     console.log('The access token is ' + data.body['access_token'])
-   //     spotifyApi.setAccessToken(data.body['access_token'])
-   //    })
+          spotifyApi.setAccessToken(data.body['access_token'])
+           })
  // }
-    if (msg.content.match('!spotify *')) {
+    else if (msg.content.match('!spotify *')) {
           track = msg.content.substring(msg.content.lastIndexOf('!spotify ') + '!spotify '.length, msg.content.length)
  // Recherche Albums
           spotifyApi.searchTracks('album:' + track)
@@ -59,6 +59,7 @@ client.on('message', msg => {
             })
       // fin partie avec les trois paramètres
       } 
+  }
 }
 )
 client.login(config.token)
