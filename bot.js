@@ -30,7 +30,7 @@ client.on('message', msg => {
 //});
         
 //autre essai
- youTube.search( + track)
+ youTube.search(track)
             .then(function (data) {
               msg.channel.sendMessage('Top 3 : ' + track)
               for (var i = 0; i < 3; i++) {
