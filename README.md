@@ -7,4 +7,4 @@ Google Traduction
 Twitter
 Youtube 
 Spotify
-Weather 
+ 
