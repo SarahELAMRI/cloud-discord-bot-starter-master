@@ -88,7 +88,6 @@ client.on('message', msg => {
 	        msg.channel.send(translation.translatedText) // Renvoie le(s) mot(s) traduit(s)
 	      }
 	    })
-	  }
 	if (msg.content.lastIndexOf('!spotify') !== -1) {
     spotifyApi.clientCredentialsGrant()
       .then(function (data) {
