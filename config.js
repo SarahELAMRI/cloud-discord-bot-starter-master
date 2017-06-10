@@ -1,4 +1,4 @@
 module.exports = {
   token: 'MzEzNjQ3NjQzMTIzMzg0MzIy.DA2eFg.p68DBnRVtBQUXsyEcnmABUIMrCc',
-  channel: 'channelid'
+  channel: '313681958125436928'
 }
