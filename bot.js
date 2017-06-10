@@ -28,7 +28,7 @@ client.on('message', msg => {
                      }
                        else {
 			       for (var i = 1; i < 3; i++) {
-				       msg.channel.sendMessage(result.title[i], null, 2)
+				       msg.channel.sendMessage(result.snippet.title[i])
               			}
 			}
 	    })
