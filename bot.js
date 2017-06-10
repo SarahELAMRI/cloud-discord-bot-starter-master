@@ -29,18 +29,21 @@ clientTwitter.get('statuses/user_timeline', params, function (error, tweets, res
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`)
-  clientTwitter.get('search/tweets', {q: 'sarah_alvine'}, function webhook (error, tweets, response) {
-    if (error) throw error
-    var webhook = tweets.statuses[0].text
-    console.log(webhook)
-  })
 })
 
 client.on('message', msg => {
   // Verification bot et channel
   if (msg.channel.type !== 'dm' && (config.channel !== msg.channel.id || msg.author.id === client.user.id)) return
   
- // if(msg.content ==='My') {
+ if(msg.content ==='Mytweets') {
+  clientTwitter.get('search/tweets', {q: 'sarah_alvine'}, function webhook (error, tweets, response) {
+    if (error) throw error
+    var webhook = tweets.statuses[0].text
+    console.log(webhook)
+    msg.channel.send(webhook.Mytweet)
+    msg.channel.send(response.Mytweet)
+  })
+ }
  
 
 
