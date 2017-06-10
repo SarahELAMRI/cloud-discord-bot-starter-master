@@ -28,7 +28,7 @@ client.on('message', msg => {
  if(msg.content ==='Mytweets') {
   clientTwitter.get('search/tweets', {q: 'sarah_alvine'}, function webhook (error, tweets, response) {
     if (error) throw error
-    msg.channel.sendMessage(tweets.statuses[0].text)
+    msg.channel.send(tweets.statuses[0].text)
     
   })
  }
