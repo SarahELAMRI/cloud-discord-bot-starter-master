@@ -17,7 +17,7 @@ client.on('message', msg => {
   if (msg.content === 'hello') {
     msg.channel.sendMessage('Hello to you too, fellow !')
   }
-  var.text = msg.content
+  var text = msg.content
   if (text.substr(0,5) === 'trad') {
     console.log('loopOK')
     var lang = text.substring(6, 8)
