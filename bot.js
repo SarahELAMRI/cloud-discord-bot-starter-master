@@ -27,12 +27,9 @@ client.on('message', msg => {
                            console.log(error);
                      }
                        else {
-			       .then(function (data) {
-				       for (var i = 0; i < 3; i++) {
-					       msg.channel.sendMessage('"' + result[i].title + '" de ' + result[i].url)
-              				}
-             		
-			       })
+			       for (var i = 0; i < 3; i++) {
+				       msg.channel.sendMessage('"' + result[i].title + '" de ' + result[i].url)
+              			}
 			}
 	    })
     }
