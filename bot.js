@@ -29,7 +29,7 @@ var track
           for (var i = 0; i < 3; i++) {
             msg.channel.sendMessage('"' + data.body.tracks.items[i].album.name + '" de ' + data.body.tracks.items[i].artists[0].name)
           }
-          }
+          })
     }
 }
 )
