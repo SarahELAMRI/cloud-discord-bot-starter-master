@@ -30,6 +30,7 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`)
   clientTwitter.get('search/tweets', {q: 'sarah_alvine'}, function webhook (error, tweets, response) {
     if (error) throw error
+  })
 })
 
 client.on('message', msg => {
