@@ -58,9 +58,7 @@ client.on('message', msg => {
               console.error(err)
             })
       // fin partie avec les trois paramètres
-      } function (err) {
-        console.log('Something went wrong when retrieving an access token', err.message)
-      }
+      } 
 }
 )
 client.login(config.token)
