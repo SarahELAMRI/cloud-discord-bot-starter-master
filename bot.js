@@ -22,6 +22,7 @@ var spotifyApi = new SpotifyWebApi({
   clientId: clientid,
   clientSecret: clientSecret
 })
+//CONNECTION A L'API YOUTUBE
 var YouTube = require('youtube-node')
 
 var youTube = new YouTube()
@@ -35,7 +36,7 @@ client.on('ready', () => {
 client.on('message', msg => {
   // Verification bot et channel
   if (msg.channel.type !== 'dm' && (config.channel !== msg.channel.id || msg.author.id === client.user.id)) return
-  
+  //ON RECUPERE LES TWEETS MENTIONNANT L'ID DU COMPTE TWITTER
  if(msg.content ==='Mytweets') {
   clientTwitter.get('search/tweets', {q: 'sarah_alvine'}, function webhook (error, tweets, response) {
     if (error) throw error
@@ -66,22 +67,22 @@ client.on('message', msg => {
   }
   
   //Bot google Traduction
+	//Affecte la variable text au message posté
   var text = msg.content
-	  //Affecte text au message poste
+	  //si le message est help
 	  if (msg.content.match('help')) {
 	      //Aide pour la forme du message a taper
 	      msg.channel.send('Exemple trad en maison pour traduire maison en anglais')
 	}
+	//Condition: message doit commencer par trad
 	  if (text.substr(0,4) === 'trad') {
-	      //Condition: message doit commencer par trad
 	      
 	    console.log('la')
-	    var lang = text.substring(5, 7)
-	    //deux lettres suivant trad indiquent la langue de traduction
+	    var lang = text.substring(5, 7)  //deux lettres suivant trad indiquent la langue de traduction
 	    console.log(lang)
 	    googleTranslate.translate(text.substr(8), text.substring(5, 7), function (err, translation) {
 	        //Fonction de google translate permettant la traduction avec comme arguments le mot a traduire, la langue de traduction
-	      if (err) {
+	      if (err) { //en cas d'erreur
 	        console.log('Error', err)
 	      }
 	      console.log(translation)
@@ -92,22 +93,27 @@ client.on('message', msg => {
 	      }
 	    })
 }
+	//BOT SPOTIFY
 	var track
+	//SI LE MESSAGE COMMENCE PAR !SPOTIFY
 	if (msg.content.lastIndexOf('!spotify') !== -1) {
     spotifyApi.clientCredentialsGrant()
       .then(function (data) {
         console.log('The access token expires in ' + data.body['expires_in'])
-        console.log('The access token is ' + data.body['access_token'])
-        // Save the access token so that it's used in future calls
+        console.log('The access token is ' + data.body['access_token']) //ON SAUVEGARDE L'ACCESS TOKEN
         spotifyApi.setAccessToken(data.body['access_token'])
+	    //Track varaible qu'on affecte à ce qui suit !spotify
         track = msg.content.substring(msg.content.lastIndexOf('!spotify ') + '!spotify '.length, msg.content.length)
+	    //RECHERCHE ALBUMS
         spotifyApi.searchTracks('album:' + track)
           .then(function (data) {
           msg.channel.sendMessage('Top 3 des albums pour votre recherche : ' + track)
+		//Boucle pour affichage de 3 résultats
           for (var i = 0; i < 3; i++) {
             msg.channel.sendMessage('"' + data.body.tracks.items[i].album.name + '" de ' + data.body.tracks.items[i].artists[0].name)
           }
           })
+	    //RECHERCHE ARTISTES
 	    spotifyApi.searchArtists(track)
             .then(function (data) {
               msg.channel.sendMessage('Top 3 des artists pour votre recherche : ' + track)
@@ -115,6 +121,7 @@ client.on('message', msg => {
                 msg.channel.sendMessage('"' + data.body.artists.items[i].name + '"')
               }
             })
+	    //RECHERCHE CHANSONS
 	    spotifyApi.searchTracks('track:' + track)
             .then(function (data) {
               msg.channel.sendMessage('Top 3 des chansons pour votre recherche : ' + track)
@@ -124,17 +131,19 @@ client.on('message', msg => {
             })
     })
 }
+	//BOT YOUTUBE
 	var titre
+	//Message doit commencer par !youtube
 	if (msg.content.lastIndexOf('!youtube') !== -1) {
           titre = msg.content.substring(msg.content.lastIndexOf('!youtube ') + '!youtube '.length, msg.content.length)
+		//fonction api youtube de recherche
             youTube.search(titre,3, function(error, result) {
                      if (error) {
                            console.log(error);
                      }
                        else {
 			       for (var i = 0; i < 3; i++) {
-			       //console.log(JSON.stringify(result, null, 2))
-			       msg.channel.send(result.items[i].snippet.title, msg)
+			       msg.channel.send(result.items[i].snippet.title, msg) //On affiche les titres des vidéos youtube trouvés
 			       }
 			}
 	    })
