@@ -30,7 +30,7 @@ var track
             msg.channel.sendMessage('"' + data.body.tracks.items[i].album.name + '" de ' + data.body.tracks.items[i].artists[0].name)
           }
           })
-    }
+    })
 }
 )
 client.login(config.token)
