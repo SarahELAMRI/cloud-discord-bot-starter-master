@@ -40,7 +40,7 @@ client.on('message', msg => {
   const hook = new Discord.WebhookClient('', 'MzEzNjQ3NjQzMTIzMzg0MzIy.DA2eFg.p68DBnRVtBQUXsyEcnmABUIMrCc')
   var webhook = tweets.statuses[0].text
   hook.send(webhook)
-  msg.channel.sendMessage(response)
+  msg.channel.sendMessage(webhook.tweet)
   })
   }
     
