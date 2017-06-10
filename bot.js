@@ -17,15 +17,15 @@ client.on('ready', () => {
 })
 
 client.on('message', msg => {
-  if (msg.content.lastIndexOf('!spotify') !== -1) {
-    spotifyApi.clientCredentialsGrant()
-      .then(function (data) {
-        console.log('The access token expires in ' + data.body['expires_in'])
-        console.log('The access token is ' + data.body['access_token'])
-        spotifyApi.setAccessToken(data.body['access_token'])
-       })
-  }
-    if (msg.content.match('!spotify *') & !msg.content.match('Taper !spotify suivi de la recherche*')) {
+  //if (msg.content.lastIndexOf('!spotify') !== -1) {
+  //  spotifyApi.clientCredentialsGrant()
+    //  .then(function (data) {
+   //     console.log('The access token expires in ' + data.body['expires_in'])
+   //     console.log('The access token is ' + data.body['access_token'])
+   //     spotifyApi.setAccessToken(data.body['access_token'])
+   //    })
+ // }
+    if (msg.content.match('!spotify *')) {
           track = msg.content.substring(msg.content.lastIndexOf('!spotify ') + '!spotify '.length, msg.content.length)
  // Recherche Albums
           spotifyApi.searchTracks('album:' + track)
