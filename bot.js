@@ -11,7 +11,7 @@ var youTube = new YouTube()
 
 youTube.setKey('AIzaSyBVQcdqQnbBH8jtfLAqOWfcqf3Lz5CDqlA') // clé API Youtube
 
-var track
+var titre
 
 // Instructions bot 
 client.on('ready', () => {
@@ -21,8 +21,8 @@ client.on('ready', () => {
 
 client.on('message', msg => {
     if (msg.content.lastIndexOf('!youtube') !== -1) {
-          track = msg.content.substring(msg.content.lastIndexOf('!youtube ') + '!youtube '.length, msg.content.length)
-            youTube.search(track,3, function(error, result) {
+          titre = msg.content.substring(msg.content.lastIndexOf('!youtube ') + '!youtube '.length, msg.content.length)
+            youTube.search(titre,3, function(error, result) {
                      if (error) {
                            console.log(error);
                      }
