@@ -37,7 +37,7 @@ client.on('ready', () => {
       message.channel.sendMessage('Tweet à voir')
     }
   })
-}
+})
 
 client.on('message', msg => {
   // Verification bot et channel
