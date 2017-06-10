@@ -4,8 +4,8 @@ const client = new Discord.Client()
 
 
 var SpotifyWebApi = require('spotify-web-api-node')
-var clientid = '685eba1d89104afda1af8026b9d43f90'
-var clientSecret = '4015d54a8f004ba2b5048de3b7ab6310'
+var clientid = '132f44ff456c41d29d544a608b448bbd'
+var clientSecret = '25d2c3ee445140bfa9aaa3d6bcdc194b'
 var spotifyApi = new SpotifyWebApi({
   clientId: clientid,
   clientSecret: clientSecret
