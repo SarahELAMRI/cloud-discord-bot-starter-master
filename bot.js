@@ -27,9 +27,7 @@ client.on('message', msg => {
                            console.log(error);
                      }
                        else {
-			       for (var i = 1; i < 3; i++) {
 				       msg.channel.sendMessage(result.snippet[i])
-              			}
 			}
 	    })
     }
