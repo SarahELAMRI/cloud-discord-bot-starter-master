@@ -27,7 +27,8 @@ client.on('message', msg => {
                            console.log(error);
                      }
                        else {
-			       msg.channel.sendMessage(result.snippet.text)
+			       console.log(JSON.stringify(result, null, 2))
+			      // msg.channel.sendMessage(result.snippet.text)
 			}
 	    })
     }
