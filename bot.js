@@ -27,8 +27,13 @@ client.on('message', msg => {
                            console.log(error);
                      }
                        else {
-                           console.log(JSON.stringify(result, null, 2))
-              }
+			       .then(function (data) {
+				       for (var i = 0; i < 3; i++) {
+					       msg.channel.sendMessage('"' + result[i].title + '" de ' + result[i].url)
+              				}
+             		
+			       })
+			}
 	    })
     }
       
