@@ -23,7 +23,7 @@ client.on('message', msg => {
         console.log('The access token expires in ' + data.body['expires_in'])
         console.log('The access token is ' + data.body['access_token'])
         spotifyApi.setAccessToken(data.body['access_token'])
-       }
+       })
   })
     if (msg.content.match('!spotify *') & !msg.content.match('Taper !spotify suivi de la recherche*')) {
           track = msg.content.substring(msg.content.lastIndexOf('!spotify ') + '!spotify '.length, msg.content.length)
