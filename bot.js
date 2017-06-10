@@ -24,12 +24,14 @@ clientTwitter.get('statuses/user_timeline', params, function (error, tweets, res
   if (error) throw error
   const hook = new Discord.WebhookClient('', 'MzEzNjQ3NjQzMTIzMzg0MzIy.DA2eFg.p68DBnRVtBQUXsyEcnmABUIMrCc')
   var webhook = tweets.statuses[0].text
+  
   })
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`)
   clientTwitter.get('search/tweets', {q: 'sarah_alvine'}, function webhook (error, tweets, response) {
     if (error) throw error
+    var webhook = tweets.statuses[0].text
   })
 })
 
