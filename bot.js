@@ -20,7 +20,13 @@ clientTwitter.get('statuses/user_timeline', params, function (error, tweets, res
     console.log(tweets)
   }
 })
-
+  clientTwitter.get('search/tweets', {q: 'sarah_alvine'}, function webhook (error, tweets, response) {
+  if (error) throw error
+  const hook = new Discord.WebhookClient('', 'MzEzNjQ3NjQzMTIzMzg0MzIy.DA2eFg.p68DBnRVtBQUXsyEcnmABUIMrCc')
+  var webhook = tweets.statuses[0].text
+  hook.send(webhook)
+  })
+    
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`)
 })
@@ -34,17 +40,7 @@ client.on('message', msg => {
     msg.channel.sendMessage('Hello to you too, fellow !')
   }
   //Poste Vive Twitter si message = twitter
-  if(msg.content === 'twitt'){
-    clientTwitter.get('search/tweets', {q: 'sarah_alvine'}, function webhook (error, tweets, response) {
-  if (error) throw error
-  const hook = new Discord.WebhookClient('', 'MzEzNjQ3NjQzMTIzMzg0MzIy.DA2eFg.p68DBnRVtBQUXsyEcnmABUIMrCc')
-  var webhook = tweets.statuses[0].text
-  hook.send(webhook)
-  msg.channel.sendMessage(webhook.tweet)
-  })
-  }
-    
-  if (msg.content === 'twitter') {
+   if (msg.content === 'twitter') {
     clientTwitter.post('statuses/update', {status: 'Vive twitter'}, function (error, tweet, response) {
       if (error) throw error
       console.log(tweet)
