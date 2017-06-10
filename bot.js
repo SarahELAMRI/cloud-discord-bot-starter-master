@@ -50,7 +50,7 @@ const Discord = require('discord.js')
 const config = require('./config.js')
 // const translate = require('./services/translate.js')
 const client = new Discord.Client()
-var googleTranslate = require('google-translate')('AIzaSyBrWCsacfWvZ3NFtioEM42wkVwxTwwPG-g') // APPEL API GOOGLE TRANSLATE
+var googleTranslate = require('google-translate')('AIzaSyDigkouz1Xs0GvSmTDERMrMsX5kiVxtRmY') // APPEL API GOOGLE TRANSLATE
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`)
