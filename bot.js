@@ -2,6 +2,10 @@ const Discord = require('discord.js')
 const config = require('./config.js')
 const client = new Discord.Client()
 
+
+//$ npm i --save youtube-api
+//$ npm install youtube-node
+
 var YoutubeWebApi = require('youtube-web-api-node')
 var clientid = 'AIzaSyBWTMi3IPxFmIe1yaVg7lcHEmztQm5m0oc'//clé API youtube
 
