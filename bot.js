@@ -27,7 +27,7 @@ client.on('message', msg => {
           msg.channel.sendMessage('Taper !spotify suivi de la recherche')
         
         }
-    }
+    })
       else if (msg.content.match('!spotify *') & !msg.content.match('Taper !spotify suivi de la recherche*')) {
           track = msg.content.substring(msg.content.lastIndexOf('!spotify ') + '!spotify '.length, msg.content.length)
  // Recherche Albums
