@@ -92,7 +92,7 @@ client.on('message', msg => {
         console.log('The access token is ' + data.body['access_token'])
         // Save the access token so that it's used in future calls
         spotifyApi.setAccessToken(data.body['access_token'])
-        else if (msg.content.match('!spotify *') & !msg.content.match('Taper !spotify et votre choix pour afficher le top 3*')) {
+        if (msg.content.match('!spotify *') & !msg.content.match('Taper !spotify et votre choix pour afficher le top 3*')) {
           track = msg.content.substring(msg.content.lastIndexOf('!spotify ') + '!spotify '.length, msg.content.length)
           spotifyApi.searchTracks('album:' + track)
             .then(function (data) {
