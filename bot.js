@@ -39,15 +39,6 @@ client.on('message', msg => {
   if (msg.content === 'hello') {
     msg.channel.sendMessage('Hello to you too, fellow !')
   }
-  //Poste Vive Twitter si message = twitter
-   if (msg.content === 'twitter') {
-    clientTwitter.post('statuses/update', {status: 'Vive twitter'}, function (error, tweet, response) {
-      if (error) throw error
-      console.log(tweet)
-      console.log(response)
-      msg.channel.sendMessage('Ton tweet est publié')
-    })
-  }
  // tweet du bot avec vérification du nombre de caractères
   if (msg.content.match('!twit*') !== null) {
     const tweety = msg.content.substring(6, msg.content.length)
