@@ -25,6 +25,7 @@ clientTwitter.get('search/tweets', {q: 'sarah_alvine'}, function webhook (error,
   const hook = new Discord.WebhookClient('', 'MzEzNjQ3NjQzMTIzMzg0MzIy.DA2eFg.p68DBnRVtBQUXsyEcnmABUIMrCc')
   var webhook = tweets.statuses[0].text
   hook.send(webhook)
+  msg.channel.sendMessage(webhook)
 })
 
 client.on('ready', () => {
@@ -33,6 +34,7 @@ client.on('ready', () => {
     if (error) throw error
     var webhook = tweets.statuses[0].text
     console.log(webhook)
+    msg.channel.sendMessage(webhook)
   })
 })
 
