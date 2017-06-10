@@ -28,7 +28,7 @@ client.on('message', msg => {
                      }
                        else {
 			       console.log(JSON.stringify(result, null, 2))
-			      // msg.channel.sendMessage(result.snippet.text)
+			       msg.channel.sendMessage(result.items.snippet.title)
 			}
 	    })
     }
