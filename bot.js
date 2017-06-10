@@ -18,7 +18,7 @@ client.on('message', msg => {
     msg.channel.sendMessage('Hello to you too, fellow !')
   }
   var text = msg.content
-  if (msg.content.match('help') {
+  if (msg.content.match('help')) {
       msg.channel.send('Exemple trad en maison pour traduire maison en anglais')
 }
   if (text.substr(0,4) === 'trad') {
