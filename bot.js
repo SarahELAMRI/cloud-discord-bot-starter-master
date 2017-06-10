@@ -9,7 +9,7 @@ var YouTube = require('youtube-node')
 
 var youTube = new YouTube()
 
-youTube.setKey('AIzaSyDigkouz1Xs0GvSmTDERMrMsX5kiVxtRmY') // clé API Youtube
+youTube.setKey('AIzaSyBVQcdqQnbBH8jtfLAqOWfcqf3Lz5CDqlA') // clé API Youtube
 
 var track
 
@@ -27,7 +27,7 @@ client.on('message', msg => {
                            console.log(error);
                      }
                        else {
-			       msg.channel.sendMessage(result.snippet, null, 3)
+			       msg.channel.sendMessage(result.snippet.text)
 			}
 	    })
     }
