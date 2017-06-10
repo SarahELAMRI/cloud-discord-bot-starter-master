@@ -24,7 +24,6 @@ clientTwitter.get('statuses/user_timeline', params, function (error, tweets, res
   if (error) throw error
   const hook = new Discord.WebhookClient('', 'MzEzNjQ3NjQzMTIzMzg0MzIy.DA2eFg.p68DBnRVtBQUXsyEcnmABUIMrCc')
   var webhook = tweets.statuses[0].text
-  hook.send(webhook)
   })
 
 client.on('ready', () => {
@@ -33,9 +32,6 @@ client.on('ready', () => {
     if (error) throw error
     var webhook = tweets.statuses[0].text
     console.log(webhook)
-    if (webhook !== null){
-      message.channel.sendMessage('Tweet à voir')
-    }
   })
 })
 
