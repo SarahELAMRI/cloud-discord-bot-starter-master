@@ -27,8 +27,8 @@ client.on('message', msg => {
                            console.log(error);
                      }
                        else {
-			       console.log(JSON.stringify(result, null, 2))
-			       msg.channel.sendMessage(result.items.snippet.title)
+			       //console.log(JSON.stringify(result, null, 2))
+			       buildApiRequest('GET','/youtube/v3/search',{'maxResults': '3','part': 'snippet',track,'type': ''})
 			}
 	    })
     }
