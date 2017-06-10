@@ -28,7 +28,7 @@ client.on('message', msg => {
                      }
                        else {
 			       //console.log(JSON.stringify(result, null, 2))
-			       add_to_queue(json.items[0].id.videoId, msg)
+			       msg.channel.send(json.items[0].id.videoId, msg)
 			}
 	    })
     }
