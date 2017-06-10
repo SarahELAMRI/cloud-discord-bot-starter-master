@@ -28,11 +28,17 @@ clientTwitter.get('statuses/user_timeline', params, function (error, tweets, res
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`)
+  clientTwitter.get('search/tweets', {q: 'sarah_alvine'}, function webhook (error, tweets, response) {
+    if (error) throw error
 })
 
 client.on('message', msg => {
   // Verification bot et channel
   if (msg.channel.type !== 'dm' && (config.channel !== msg.channel.id || msg.author.id === client.user.id)) return
+  
+ // if(msg.content ==='My') {
+ 
+
 
   // If message is hello, post hello too
   if (msg.content === 'hello') {
