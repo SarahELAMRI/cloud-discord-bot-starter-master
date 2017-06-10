@@ -13,7 +13,10 @@ var spotifyApi = new SpotifyWebApi({
 })
 var track
 
-
+client.on('ready', () => {
+	    console.log(`Logged in as ${client.user.username}!`)
+	})
+client.on('message', msg => {
   // Bot Spotify //
   if (msg.content.lastIndexOf('!spotify') !== -1) {
     spotifyApi.clientCredentialsGrant()
@@ -32,5 +35,5 @@ var track
           })
     })
 }
-)
+})
 client.login(config.token)
