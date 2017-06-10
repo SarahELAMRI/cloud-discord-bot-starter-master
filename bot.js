@@ -26,9 +26,16 @@ clientTwitter.get('statuses/user_timeline', params, function (error, tweets, res
   var webhook = tweets.statuses[0].text
   hook.send(webhook)
   })
-    
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.username}!`)
+  clientTwitter.get('search/tweets', {q: 'sarah_alvine'}, function webhook (error, tweets, response) {
+    if (error) throw error
+    var webhook = tweets.statuses[0].text
+    console.log(webhook)
+    if (webhook !== null){
+      message.channel.sendMessage('Tweet à voir')
+  })
 })
 
 client.on('message', msg => {
