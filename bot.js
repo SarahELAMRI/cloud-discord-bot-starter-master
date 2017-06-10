@@ -23,13 +23,12 @@ client.on('message', msg => {
    //     console.log('The access token expires in ' + data.body['expires_in'])
    //     console.log('The access token is ' + data.body['access_token'])
           spotifyApi.setAccessToken(data.body['access_token'])
-           })
  // }
-    else if (msg.content.match('!spotify *')) {
-          track = msg.content.substring(msg.content.lastIndexOf('!spotify ') + '!spotify '.length, msg.content.length)
+          if (msg.content.match('!spotify *')) {
+            track = msg.content.substring(msg.content.lastIndexOf('!spotify ') + '!spotify '.length, msg.content.length)
  // Recherche Albums
-          spotifyApi.searchTracks('album:' + track)
-            .then(function (data) {
+            spotifyApi.searchTracks('album:' + track)
+              .then(function (data) {
               msg.channel.sendMessage('Top 3 des albums : ' + track)
               for (var i = 0; i < 3; i++) {
                 msg.channel.sendMessage('"' + data.body.tracks.items[i].album.name + '" de ' + data.body.tracks.items[i].artists[0].name)
