@@ -1,8 +1,16 @@
 const Discord = require('discord.js')
 const config = require('./config.js')
 const client = new Discord.Client()
-
-var googleTranslate = require('google-translate')('AIzaSyDigkouz1Xs0GvSmTDERMrMsX5kiVxtRmY')
+const Twitter = require('twitter')
+//info compte twitter et bot 
+//https://apps.twitter.com/app/13890179/keys
+const clientTwitter = new Twitter({
+  consumer_key: 'TQ70nj7GRuTqixlKfvQ6OEv8z',
+  consumer_secret: 'H2gvkxWBYhv3j4AYAg3VepqvZJlYGXZ0jsdRbBDtbg1jMSidLR',
+  access_token_key: '871798636858019841-asbpxQTGadx6AeEef5jq1weGkFllbAY',
+  access_token_secret: 'TqBhzV3kta7whL0VjS80TKlRq8GZBpL6uqAmjZIrc3CXD'
+})
+ var googleTranslate = require('google-translate')('AIzaSyDigkouz1Xs0GvSmTDERMrMsX5kiVxtRmY')
 //Pour se connecter à l'API google translate
 
 client.on('ready', () => {
@@ -41,7 +49,41 @@ client.on('message', msg => {
       } else {
         msg.channel.send(translation.translatedText) // Renvoie le(s) mot(s) traduit(s)
       }
+      
+      //Bot twitter
+      if(msg.content ==='Mytweets') {
+  clientTwitter.get('search/tweets', {q: 'sarah_alvine'}, function webhook (error, tweets, response) {
+    if (error) throw error
+    msg.channel.sendMessage(tweets.statuses[0].text)
+    
+  })
+ }
+      //Poste Vive Twitter si message = twitter
+      if (msg.content === 'twitter') {
+    clientTwitter.post('statuses/update', {status: 'Vive twitter'}, function (error, tweet, response) {
+      if (error) throw error
+      console.log(tweet)
+      console.log(response)
+      msg.channel.sendMessage('Ton tweet est publié')
     })
   }
+      // tweet du bot avec vérification du nombre de caractères
+  if (msg.content.match('!twit*') !== null) {
+    const tweety = msg.content.substring(6, msg.content.length)
+    if (tweety.length <= 140) {
+      clientTwitter.post('statuses/update', {status: tweety}, function (error, tweet, response) {
+        if (error) throw error
+        console.log(tweet)
+        console.log(response)
+        msg.channel.sendMessage('Ton tweet a été publié!')
+      })
+    } else {
+      msg.channel.sendMessage('Ton tweet contient plus de 140 caractères.')
+    }
+  }
 })
+    })
+=======
+
+
 client.login(config.token)
