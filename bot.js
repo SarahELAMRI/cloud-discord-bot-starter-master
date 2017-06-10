@@ -24,7 +24,7 @@ client.on('message', msg => {
         console.log('The access token is ' + data.body['access_token'])
         spotifyApi.setAccessToken(data.body['access_token'])
        })
-  })
+  }
     if (msg.content.match('!spotify *') & !msg.content.match('Taper !spotify suivi de la recherche*')) {
           track = msg.content.substring(msg.content.lastIndexOf('!spotify ') + '!spotify '.length, msg.content.length)
  // Recherche Albums
@@ -60,7 +60,7 @@ client.on('message', msg => {
       // fin partie avec les trois paramètres
       } function (err) {
         console.log('Something went wrong when retrieving an access token', err.message)
-      })
+      }
 }
 )
 client.login(config.token)
