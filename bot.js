@@ -19,15 +19,26 @@ client.on('message', msg => {
           track = msg.content.substring(msg.content.lastIndexOf('!youtube ') + '!youtube '.length, msg.content.length)
       
 //recherche des 3 resultats
-youTube.search( track , 3, function(error, result) {
-  if (error) {
-    console.log(error);
-  }
-  else {
-    console.log(JSON.stringify(result, null, 3));
-  }
+//youTube.search( track , 3, function(error, result) {
+//  if (error) {
+//    console.log(error);
+//  }
+//  else {
+//    console.log(JSON.stringify(result, null, 3));
+//  }
   
-});
+//});
+        
+//autre essai
+ youTube.search( + track)
+            .then(function (data) {
+              msg.channel.sendMessage('Top 3 : ' + track)
+              for (var i = 0; i < 3; i++) {
+                msg.channel.sendMessage('"' + data.body.tracks.items[i].album.name + '" de ' + data.body.tracks.items[i].artists[0].name)
+              }
+            }, function (err) {
+              console.error(err)
+            })
       
 }
 
