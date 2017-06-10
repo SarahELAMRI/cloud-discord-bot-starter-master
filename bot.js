@@ -32,6 +32,7 @@ client.on('ready', () => {
   clientTwitter.get('search/tweets', {q: 'sarah_alvine'}, function webhook (error, tweets, response) {
     if (error) throw error
     var webhook = tweets.statuses[0].text
+    console.log(webhook)
   })
 })
 
