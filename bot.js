@@ -28,7 +28,7 @@ client.on('message', msg => {
         
         }
     })
-      else if (msg.content.match('!spotify *') & !msg.content.match('Taper !spotify suivi de la recherche*')) {
+      if (msg.content.match('!spotify *') & !msg.content.match('Taper !spotify suivi de la recherche*')) {
           track = msg.content.substring(msg.content.lastIndexOf('!spotify ') + '!spotify '.length, msg.content.length)
  // Recherche Albums
           spotifyApi.searchTracks('album:' + track)
