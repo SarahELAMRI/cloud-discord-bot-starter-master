@@ -57,7 +57,8 @@ client.on('message', msg => {
               console.error(err)
             })
       // fin partie avec les trois paramètres
-      } 
+      }
   })
-}
+  }
+})
 client.login(config.token)
