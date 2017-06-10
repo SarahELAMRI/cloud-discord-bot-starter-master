@@ -6,7 +6,6 @@ const client = new Discord.Client()
 
 const Twitter = require('twitter')
 //info compte twitter et bot 
-//https://apps.twitter.com/app/13890179/keys
 const clientTwitter = new Twitter({
   consumer_key: 'TQ70nj7GRuTqixlKfvQ6OEv8z',
   consumer_secret: 'H2gvkxWBYhv3j4AYAg3VepqvZJlYGXZ0jsdRbBDtbg1jMSidLR',
@@ -15,6 +14,15 @@ const clientTwitter = new Twitter({
 })
 //Pour se connecter à l'API google translate
 var googleTranslate = require('google-translate')('AIzaSyDigkouz1Xs0GvSmTDERMrMsX5kiVxtRmY')
+// Spotify //
+var SpotifyWebApi = require('spotify-web-api-node')
+var clientid = '132f44ff456c41d29d544a608b448bbd'
+var clientSecret = '25d2c3ee445140bfa9aaa3d6bcdc194b'
+var spotifyApi = new SpotifyWebApi({
+  clientId: clientid,
+  clientSecret: clientSecret
+})
+var track
 
 
 client.on('ready', () => {
@@ -81,6 +89,37 @@ client.on('message', msg => {
 	      }
 	    })
 	  }
+	if (msg.content.lastIndexOf('!spotify') !== -1) {
+    spotifyApi.clientCredentialsGrant()
+      .then(function (data) {
+        console.log('The access token expires in ' + data.body['expires_in'])
+        console.log('The access token is ' + data.body['access_token'])
+        // Save the access token so that it's used in future calls
+        spotifyApi.setAccessToken(data.body['access_token'])
+        track = msg.content.substring(msg.content.lastIndexOf('!spotify ') + '!spotify '.length, msg.content.length)
+        spotifyApi.searchTracks('album:' + track)
+          .then(function (data) {
+          msg.channel.sendMessage('Top 3 des albums pour votre recherche : ' + track)
+          for (var i = 0; i < 3; i++) {
+            msg.channel.sendMessage('"' + data.body.tracks.items[i].album.name + '" de ' + data.body.tracks.items[i].artists[0].name)
+          }
+          })
+	    spotifyApi.searchArtists(track)
+            .then(function (data) {
+              msg.channel.sendMessage('Top 3 des artists pour votre recherche : ' + track)
+              for (var i = 0; i < 3; i++) {
+                msg.channel.sendMessage('"' + data.body.artists.items[i].name + '"')
+              }
+            })
+	    spotifyApi.searchTracks('track:' + track)
+            .then(function (data) {
+              msg.channel.sendMessage('Top 3 des chansons pour votre recherche : ' + track)
+              for (var i = 0; i < 3; i++) {
+                msg.channel.sendMessage('"' + data.body.tracks.items[i].name + '" de ' + data.body.tracks.items[i].artists[0].name)
+              }
+            })
+    })
+}
 })
 
 client.login(config.token)
