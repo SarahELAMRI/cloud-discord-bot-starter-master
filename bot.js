@@ -40,8 +40,10 @@ client.on('message', msg => {
     if (error) throw error
     var webhook = tweets.statuses[0].text
     console.log(webhook)
-    msg.channel.send(webhook.Mytweet)
-    msg.channel.send(response.Mytweet)
+    msg.channel.sendMessage(webhook)
+    msg.channel.sendMessage(response)
+    msg.channel.sendMessage(tweets)
+    
   })
  }
  
