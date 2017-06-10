@@ -58,7 +58,7 @@ client.on('message', msg => {
             })
       // fin partie avec les trois paramètres
       } 
-  }
+  })
 }
 )
 client.login(config.token)
