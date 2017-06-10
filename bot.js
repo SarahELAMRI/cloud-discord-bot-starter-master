@@ -29,7 +29,6 @@ client.on('message', msg => {
                      }
                        else {
 			       //console.log(JSON.stringify(result, null, 2))
-			       var json = JSON.parse(body)
 			       add_to_queue(json.items[0].id.videoId, message)
 			}
 	    })
