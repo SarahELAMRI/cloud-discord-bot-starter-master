@@ -41,7 +41,7 @@ client.on('message', msg => {
   var webhook = tweets.statuses[0].text
   hook.send(webhook)
   msg.channel.sendMessage(response)
-  })
+  }
   })
     
   if (msg.content === 'twitter') {
