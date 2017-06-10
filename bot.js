@@ -35,6 +35,7 @@ client.on('ready', () => {
     console.log(webhook)
     if (webhook !== null){
       message.channel.sendMessage('Tweet à voir')
+    }
   })
 }
 
