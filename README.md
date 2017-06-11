@@ -13,3 +13,6 @@ Utilisation de différentes API avec un bot discord
 * "Google Traduction : google-translate "
 * "Youtube : youtube-node "
 
+## Microsoft Azure 
+
+* "Hébergement Azure " https://alvinesarahbot.azurewebsites.net
