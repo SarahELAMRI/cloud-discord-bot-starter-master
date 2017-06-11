@@ -1,10 +1,3 @@
-Equipe 
-El Amri Sarah 
-Venkatramiah Alvine
+## Projet Bot Discord
 
-API 
-Google Traduction 
-Twitter
-Youtube 
-Spotify
- 
+Utilisation de différentes API 
