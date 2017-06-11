@@ -1,16 +1,15 @@
 ## Projet Bot Discord
 
-Utilisation de différentes API 
+Utilisation de différentes API avec un bot discord
 
-## Membres 
+# <a name="team-members"></a>Equipe
+* "Alvine Venkatramiah"
+* "Sarah El Amri"
 
-Alvine Venkatramiah et Sarah El Amri
+# API 
 
-## API 
+* "Twitter : "
+* "Spotify : "
+* "Google Traduction : "
+* "Youtube : "
 
-# Table of Contents
-
-* [Team Members](#team-members)
-
-# <a name="team-members"></a>Team Members
-* "J. Jesus. P. Aguinaga" <admin@listforks.com>
