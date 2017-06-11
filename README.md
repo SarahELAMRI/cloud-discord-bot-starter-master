@@ -8,8 +8,8 @@ Utilisation de différentes API avec un bot discord
 
 ## API 
 
-* "Twitter : "
-* "Spotify : "
-* "Google Traduction : "
-* "Youtube : "
+* "Twitter : twitter "
+* "Spotify : spotify-web-api-node "
+* "Google Traduction : google-translate "
+* "Youtube : youtube-node "
 
