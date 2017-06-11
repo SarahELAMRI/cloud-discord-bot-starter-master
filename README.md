@@ -16,5 +16,5 @@ Utilisation de différentes API avec un bot discord
 ## Microsoft Azure 
 
 * "Hébergement Azure " https://alvinesarahbot.azurewebsites.net
-* Connecté sur Skype "The Great ALvine"
+* Connecté sur Skype "The Great Alvine"
 * erreur de server type "HTTP 500 Internal Server Error" pour channel Bing
