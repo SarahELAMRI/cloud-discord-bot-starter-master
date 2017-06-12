@@ -8,10 +8,11 @@ Utilisation de différentes API avec un bot discord
 
 ## API 
 
-* "Twitter : twitter "
-* "Spotify : spotify-web-api-node "
-* "Google Traduction : google-translate "
-* "Youtube : youtube-node "
+* npm install 
+* "Twitter : npm install twitter "
+* "Spotify : nmp intall spotify-web-api-node "
+* "Google Traduction : npm install google-translate "
+* "Youtube : npm install youtube-node "
 
 ## Microsoft Azure 
 
